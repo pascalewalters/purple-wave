@@ -1,0 +1,205 @@
+<!doctype html> <html>
+	<head>
+		<title>Research Purple Wave</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+			integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link href="css/style.css" rel="stylesheet">
+		<link rel="icon" type="img/ico" href="favicon.ico">
+		<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+		<script src="js/jquery-3.1.0.min.js" type="text/javascript"></script>
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	</head>
+	
+	<body>
+		<nav class="navbar navbar-default" id="header">
+			<a href="#"><img src="img/logo.png"></a>
+		</nav>
+
+		<div class="container" id="page">
+			<div class="row" id="log-buttons">
+				<div class="col-md-3"></div>
+				<div class="col-md-3">
+					<button type="button" class="btn btn-default btn-log" id="log-computer" data-toggle="modal" data-target="#logComputerModal">
+					    Log a Computer</button>
+				</div>
+
+				<div class="col-md-3">	
+					<button type="button" class="btn btn-default btn-log" id="log-issue" data-toggle="modal" data-target="#logIssueModal">
+                                            Log an Issue</button>
+				</div>
+			</div>
+
+			<div class="row" id="view-data-buttons">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-3">
+                                        <a type="button" class="btn btn-default btn-log" id="view-computers" href="/computer-inventory/index.html">
+                                            View Computer Inventory</a>
+                                </div>
+
+                                <div class="col-md-3">
+                                        <a type="button" class="btn btn-default btn-log" id="view-issues" href="/issue-tracker/index.html">
+                                            View Issue Tracker</a>
+                                </div>
+
+                        </div>
+
+			<div class="row" id="excel-buttons">
+				<div class="col-md-3"></div>
+                                <div class="col-md-3">
+                                        <button type="button" class="btn btn-default btn-log" id="computer-excel" onclick="self.location.href='php/getComputerInventoryExcel.php';">
+                                            Download Computer Inventory</button>
+                                </div>
+
+                                <div class="col-md-3">
+                                        <button type="button" class="btn btn-default btn-log" id="issue-excel" onclick="self.location.href='php/getIssueTrackerExcel.php';">
+                                            Download Issue Tracker</button>
+                                </div>
+
+			</div>
+		</div>
+
+		<div class="modal fade" id="logComputerModal" tabindex="-1" role="dialog" aria-labelledby="logComputerModalLabel">
+		    <div class="modal-dialog modal-lg" role="document">
+		        <div class="modal-content">
+			    <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="logComputerModalLabel">Log a Computer</h4>			
+			    </div>
+			    <div class="modal-body">
+				<div class="container-fluid">
+		        	    <form>
+		        		<div class="form-group row">
+		        		    <label for="c-img-res" class="col-sm-8 col-form-label">IMG or RES</label>
+		        			<div class="col-sm-4">
+		        				<select class="form-control" id="c-img-res">
+		        					<option>IMG</option>
+		        					<option>RES</option>
+		        				</select>
+		        			</div>
+		        		</div>
+		        		<div class="form-group row">
+		        			<label for="c-username" class="col-sm-3 col-form-label">User Name</label>
+		        			<div class="col-sm-9"><input type="text" class="form-control" id="c-username"></div>
+		        		</div>
+		        		<div class="form-group row">
+		        			<label for="c-location" class="col-sm-3 col-form-label">Location/Room #</label>
+		        			<div class="col-sm-9"><input type="text" class="form-control" id="c-location"></div>
+		        		</div>
+					<div class="form-group row">
+                                                <label for="c-computerName" class="col-sm-3 col-form-label">Computer Name</label>
+                                                <div class="col-sm-9"><input type="text" class="form-control" id="c-computerName"></div>
+                                        </div>
+					<div class="form-group row">
+                                                <label for="c-assetTag" class="col-sm-3 col-form-label">Asset Tag</label>
+                                                <div class="col-sm-9"><input type="text" class="form-control" id="c-assetTag"></div>
+                                        </div>
+					<div class="form-group row">
+                                                <label for="c-researchSoftware" class="col-sm-3 col-form-label">Research Software</label>
+                                                <div class="col-sm-9"><textarea class="form-control" rows="3" id="c-researchSoftware"></textarea></div>
+                                        </div>
+                                        <div class="form-group row">
+                                                <label for="c-notes" class="col-sm-3 col-form-label">Notes</label>
+                                                <div class="col-sm-9"><textarea class="form-control" rows="3" id="c-notes"></textarea></div>
+                                        </div>
+
+		        	</form>
+		        </div>
+			    </div>
+			    <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary" id="computer-log-submit">
+				    Submit Form</button>
+			    </div>
+			</div>
+		    </div>
+		</div>
+
+
+                <div class="modal fade" id="logIssueModal" tabindex="-1" role="dialog" aria-labelledby="logIssueModalLabel">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="logIssueModalLabel">Log an Issue</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <form>
+					<div class="form-group row">
+					    <label for="i-site" class="col-sm-3 col-form-label">Site</label>
+					    <div class="col-sm-9"><input type="text" class="form-control" id="i-site"></div>
+					</div>
+					<div class="form-group row">
+                                            <label for="i-programName" class="col-sm-3 col-form-label">Program Name</label>
+                                            <div class="col-sm-9"><input type="text" class="form-control" id="i-programName"></div>
+                                        </div>
+					<div class="form-group row">
+                                            <label for="i-room" class="col-sm-3 col-form-label">Room #</label>
+                                            <div class="col-sm-9"><input type="text" class="form-control" id="i-room"></div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="i-username" class="col-sm-3 col-form-label">User Name</label>
+                                            <div class="col-sm-9"><input type="text" class="form-control" id="i-username"></div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="i-extension" class="col-sm-3 col-form-label">Extension</label>
+                                            <div class="col-sm-9"><input type="text" class="form-control" id="i-extension"></div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="i-issueCategory" class="col-sm-8 col-form-label">Issue Category</label>
+                                                <div class="col-sm-4">
+                                                        <select class="form-control" id="i-issueCategory">
+                                                                <option>Corporate Apps</option>
+                                                                <option>How-To</option>
+								<option>N/A</option>
+								<option>Network</option>
+								<option>Non-Corporate Apps</option>
+								<option>Research IT</option>
+								<option>Research Software</option>
+								<option>Service Delivery</option>
+								<option>Telecom/Process</option>
+                                                        </select>
+                                                </div>
+                                        </div>
+                                        <div class="form-group row">
+                                                <label for="i-issueDescription" class="col-sm-3 col-form-label">Issue Description</label>
+                                                <div class="col-sm-9"><textarea class="form-control" rows="3" id="i-issueDescription"></textarea></div>
+                                        </div>
+                                        <div class="form-group row">
+                                                <label for="i-manager" class="col-sm-3 col-form-label">Reporting Manager</label>
+                                                <div class="col-sm-9"><input type="text" class="form-control" id="i-manager"></div>
+                                        </div>
+                                        <div class="form-group row">
+                                                <label for="i-owner" class="col-sm-3 col-form-label">Assigned To/Owner</label>
+                                                <div class="col-sm-9"><input type="text" class="form-control" id="i-owner"></div>
+                                        </div>
+                                        <div class="form-group row">
+                                                <label for="i-notes" class="col-sm-3 col-form-label">Progress Notes</label>
+                                                <div class="col-sm-9"><textarea class="form-control" rows="3" id="i-notes"></textarea></div>
+                                        </div>
+
+                                </form>
+                        </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" id="issue-log-submit">
+                                    Submit Form</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+		<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	    	<script src="js/logComputer.js" type="text/javascript"></script>
+		<script src="js/logIssue.js" type="text/javascript"></script>
+	</body>
+
+</html>

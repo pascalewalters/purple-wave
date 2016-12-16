@@ -1,0 +1,39 @@
+#header {
+	font-family: 'Nunito', sans-serif;
+	color: #9055A2;
+	background-color: #eef3f9;
+	padding-left: 10px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+}
+
+table {
+	width: 100%;
+}
+
+tr:nth-child(even) {
+	background-color: #F9F8F8;
+}
+
+.btn-log {
+	width: 100%;
+}
+
+#log-buttons {
+	position: relative;
+	top: 80px;
+}
+
+#excel-buttons {
+	position: relative;
+	top: 100px;
+}
+
+#view-data-buttons {
+	position: relative;
+	top: 90px;
+}
